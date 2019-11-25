@@ -16,7 +16,8 @@ $sql1 = "INSERT INTO `user_films` (filmid, id, woord) VALUES ('$filmid', '$id', 
 $result1 = mysqli_query($conn, $sql1);
 
 if (($result1)) {
-
+  header("Location: ../home.php");
+  
 }
 
 
