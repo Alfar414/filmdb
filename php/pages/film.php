@@ -4,6 +4,13 @@ session_start();
 include('../conn.php');
 $id = $_GET['id'];
 
+$id2 = $_SESSION['userid'];
+
+echo $id2;
+
+
+echo $id;
+
 
 
 //   $select = "SELECT * FROM user WHERE id=".$id;	
@@ -39,7 +46,7 @@ $id = $_GET['id'];
 
 <body>
 <div class="logo" >
-<img src="../img/logo.png" alt="logo">
+<img src="/../film/filmdb/img/logo.png" alt="logo">
 </div>
 
 <table>
@@ -58,31 +65,15 @@ $id = $_GET['id'];
         echo '<td>'. $row[5] . '</td>';	
         echo '<td>'. $row[7] . '</td>';
         $url = $row[6];
-        $filmid = $row[0];
-        $woord = $row[7];
+        // $filmid = $row[0];
+        // $woord = $row[7];
+        echo '<tr><td><a href="recommend.php?id='.$row[0].'" ><button type="button">Vind ik leuk!</button></a></td></tr>';
 
         echo '</tr>';	
-
-        if(isset($_POST['submit'])){
-
-
-
-          $sql1 = "INSERT INTO `user_films` (filmid, id, woord) VALUES ('$filmid', '$id', '$woord')";
-          $result1 = mysqli_query($conn, $sql1);
-          
-          if (($result1)) {
-            header("Location: ../home.php");
-          
-          }
-            }
-
 
 	}
 		?>
 		</table>
-    <form name="add" method="POST" action="" >
-    <input type="submit" value="submit" name="submit">
-    </form>
 
             <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>

@@ -51,7 +51,7 @@ if (mysqli_num_rows($results) > 0) {
 
 <body>
 <div class="logo" >
-<img src="../img/logo.png" alt="logo">
+<img src="/../film/filmdb/img/logo.png" alt="logo">
 </div>
 
 <div class="forms">

@@ -2,10 +2,10 @@
 session_start();
 require('conn.php');
 
-if($_SESSION['id'] != null){
-    $id = $_SESSION['id'];
+if($_SESSION['userid'] != null){
+    $id = $_SESSION['userid'];
 
-echo $_SESSION['id'];
+echo $_SESSION['userid'];
 
 ?>
 

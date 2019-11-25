@@ -16,18 +16,18 @@ $username = stripcslashes($username);
 $password = stripcslashes($password);
 
 //zoekt de naam en wachtwoord op uit de database
-$sql = "SELECT id, username, pass FROM user WHERE username='$username' AND pass='$password'";
+$sql = "SELECT userid, username, pass FROM user WHERE username='$username' AND pass='$password'";
 $result = mysqli_query($conn, $sql);
 //zet de resultaten in $row
 $row = mysqli_fetch_array($result);
 
-$id = $row['id'];   
+$id = $row['userid'];   
 
 //controlleert of dezelfde rows de juiste gegevens hebben
 if ($row['username'] == $username && $row['pass'] == $password){
 
     //zet de gebruikersnaam in een sessie waardoor deze ondhouden blijft
-    $_SESSION['id'] = $id;
+    $_SESSION['userid'] = $id;
 
     echo $id;
     //verwijst door naar de home.php

@@ -16,7 +16,7 @@ include('../conn.php');
 
 <body>
 <div class="logo" >
-<img src="/../film/img/logo.png" alt="logo">
+<img src="/../film/filmdb/img/logo.png" alt="logo">
 </div>
 
 <ul>
