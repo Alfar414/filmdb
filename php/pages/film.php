@@ -17,16 +17,8 @@ $result1 = mysqli_query($conn, $sql1);
 
 if (($result1)) {
   header("Location: ../home.php");
-  
+
 }
-
-
-
-
-
-
-
-
 
 //   $select = "SELECT * FROM user WHERE id=".$id;	
 //   //$select2 = "SELECT username FROM user WHERE email='$email'";	
