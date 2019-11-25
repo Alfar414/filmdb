@@ -4,21 +4,7 @@ session_start();
 include('../conn.php');
 $id = $_GET['id'];
 
-if(isset($_POST['submit'])){
 
-  $filmid = $_POST["filmid"];
-  $id = $_POST["id"];
-  $woord = $_POST["woord"];
-
-
-
-$sql1 = "INSERT INTO `user_films` (filmid, id, woord) VALUES ('$filmid', '$id', '$woord')";
-$result1 = mysqli_query($conn, $sql1);
-
-if (($result1)) {
-  header("Location: ../home.php");
-
-}
 
 //   $select = "SELECT * FROM user WHERE id=".$id;	
 //   //$select2 = "SELECT username FROM user WHERE email='$email'";	
@@ -40,7 +26,7 @@ if (($result1)) {
 
 //     }
 //   }
-}
+
 
 ?>
 
@@ -77,11 +63,26 @@ if (($result1)) {
 
         echo '</tr>';	
 
-        echo '<input type="submit" value="submit" name="submit">';
+        if(isset($_POST['submit'])){
+
+
+
+          $sql1 = "INSERT INTO `user_films` (filmid, id, woord) VALUES ('$filmid', '$id', '$woord')";
+          $result1 = mysqli_query($conn, $sql1);
+          
+          if (($result1)) {
+            header("Location: ../home.php");
+          
+          }
+            }
+
 
 	}
 		?>
 		</table>
+    <form name="add" method="POST" action="" >
+    <input type="submit" value="submit" name="submit">
+    </form>
 
             <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
