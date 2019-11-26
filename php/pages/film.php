@@ -65,6 +65,8 @@ echo $id;
         echo '<td>'. $row[5] . '</td>';	
         echo '<td>'. $row[7] . '</td>';
         $url = $row[6];
+
+        echo $url;
         // $filmid = $row[0];
         // $woord = $row[7];
         echo '<tr><td><a href="recommend.php?id='.$row[0].'" ><button type="button">Vind ik leuk!</button></a></td></tr>';
