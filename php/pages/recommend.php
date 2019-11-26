@@ -21,9 +21,14 @@ include('../conn.php');
 // $result = mysqli_query($conn, $sql1);
 
 if ($result) {
-  header("Location: ../home.php");
+
+   $sql2 = "INSERT INTO `user_films` (date) VALUES (CURRENT_TIMESTAMP()) WHERE userid =".$id2;
+   $result2 = mysqli_query($conn, $sql2);	
+
+   header("Location: ../home.php");
 
 }
   
+
 
   ?>

@@ -38,17 +38,19 @@ echo $_SESSION['userid'];
 			<tr><th></th><th>naam</th><th>descriptie</th><th>director</th><th>acteur</th></tr>
 			
 			<?php
-			
-	$sql="SELECT * FROM films";
+            
+            
+            
+	$sql="SELECT user_films.userid, user_films.film_id, films.image, films.naam, films.descriptie, films.director FROM user_films,films WHERE user_films.userid =".$id." AND user_films.soort = films.soort AND user_films.film_id != films.film_id ORDER BY user_films.date DESC LIMIT 8";
 	$result_set=mysqli_query($conn, $sql);
 	while($row=mysqli_fetch_row($result_set))
 	{
 		echo '<tr>';
         echo '<td><img src="./pages/afb/'. $row[2] . '"width="200px" height="200px"></a></td>';
-        echo '<td>'. $row[1] . '</td>';
-		echo '<td>'. $row[3] . '</td>';
-        echo '<td>'. $row[4] . '</td>';
-        echo '<td>'. $row[5] . '</td>';	
+        echo '<td>'. $row[3] . '</td>';
+		echo '<td>'. $row[4] . '</td>';
+        echo '<td>'. $row[5] . '</td>';
+
         echo '<td><a href="./pages/film.php?id='.$row[0].'"><button>Bekijken</button></a></td>';	
         echo '</tr>';
 	}
