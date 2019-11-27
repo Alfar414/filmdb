@@ -9,22 +9,27 @@ include('../conn.php');
 
 <html>
 
-<head>
-<link rel="stylesheet" type="text/css" href="/../film/css/style.css">
-<title>Movies</title>
+<link rel="stylesheet" type="text/css" href="/../film/filmdb/css/style.css">
+    
+    <title>Movies</title>
 </head>
-
 <body>
 <div class="logo" >
 <img src="/../film/filmdb/img/logo.png" alt="logo">
 </div>
-
+</div>
 <ul>
-  <li><a class="active" href="home.php">Home</a></li>
-  <li><a href="../php/pages/add.php">Add a movie</a></li>
-  <li><a href="list.php">List</a></li>
-  <li><a href="profile.php">Profile</a></li>
+<li><a  href="../home.php">Home</a></li>
+<li><a class="active" href="../php/pages/add.php">Add a movie</a></li>
+<li><a href="list.php">List</a></li>
+<li><a href="profile.php">Profile</a></li>
 </ul>
+<div class="form1">
+<form action="./pages/search.php" method="GET">
+<input type="text" placeholder="Zoek op film naam, directors of acteurs!" name="search" />
+
+</form>
+</div>
 
 <div class="search">
 
@@ -34,7 +39,7 @@ $output = '';
 if(isset($_GET['search']) AND $_GET['search'] !== ' '){
 	$search = $_GET['search'];
 	
-	$sql = mysqli_query($conn, "SELECT * FROM films WHERE naam LIKE '%$search%' OR director LIKE '%$search%' OR acteur LIKE '%$search%'") or die(mysqli_error($conn));
+	$sql = mysqli_query($conn, "SELECT * FROM films WHERE naam LIKE '%$search%' OR soort LIKE '%$search%'  OR acteur LIKE '%$search%'") or die(mysqli_error($conn));
 	$count = mysqli_num_rows($sql);
 	if($count == 0){
 		$output = 'no search results for <b>"' . $search . '"</b>';

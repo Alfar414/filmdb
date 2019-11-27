@@ -45,8 +45,8 @@ if($_SESSION['userid'] != null){
             // SELECT * FROM films where soort IN (SELECT DISTINCT soort FROM user_films WHERE user_films.userid = 2 AND  user_films.film_id != films.film_id  ORDER BY date DESC )
 	$sql="SELECT f1.film_id, image, naam, descriptie, director 
     FROM films f1
-    LEFT JOIN user_films f2 ON f1.film_id = f2.film_id AND f2.userid =".$id."
-    WHERE f2.film_id IS NULL";
+    LEFT JOIN user_films f2 ON f1.film_id = f2.film_id AND f2.userid =".$id." 
+    WHERE f2.film_id IS NULL ";
 	$result_set=mysqli_query($conn, $sql);
 	while($row=mysqli_fetch_row($result_set))
 	{

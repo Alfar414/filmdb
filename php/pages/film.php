@@ -6,10 +6,10 @@ $id = $_GET['id'];
 
 $id2 = $_SESSION['userid'];
 
-echo $id2;
+//echo $id2;
 
 
-echo $id;
+//echo $id;
 
 
 
@@ -39,14 +39,30 @@ echo $id;
 
 <!doctype html>
 
-<head>
-<link rel="stylesheet" type="text/css" href="../css/style.css">
-<title>Movies</title>
-</head>
 
+<div class="header">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/../film/filmdb/css/style.css">
+    
+    <title>Movies</title>
+</head>
 <body>
 <div class="logo" >
 <img src="/../film/filmdb/img/logo.png" alt="logo">
+</div>
+</div>
+<ul>
+<li><a  href="../home.php">Home</a></li>
+<li><a class="active" href="../php/pages/add.php">Add a movie</a></li>
+<li><a href="list.php">List</a></li>
+<li><a href="profile.php">Profile</a></li>
+</ul>
+<div class="form1">
+<form action="./pages/search.php" method="GET">
+<input type="text" placeholder="Zoek op film naam, directors of acteurs!" name="search" />
+
+</form>
 </div>
 
 <table>
@@ -56,20 +72,21 @@ echo $id;
     $result_set=mysqli_query($conn, $sql);
 	while($row=mysqli_fetch_row($result_set))
 	{
-		echo '<tr>';
+    echo '<tr>';
+    echo '<table>		<th>Image</th><th>Naam</th><th>Descriptie</th><th>Director</th><th>Acteur</th><th>Soort</th><th></th></tr><td>';
         echo '<td><img src="afb/'. $row[2] . '"width="100px" height="100px"></a></td>';
 
         echo '<td>'. $row[1] . '</td>';
 		    echo '<td>'. $row[3] . '</td>';
         echo '<td>'. $row[4] . '</td>';
         echo '<td>'. $row[5] . '</td>';	
-        echo '<td>'. $row[7] . '</td>';
+
         $url = $row[6];
 
         //  echo $url;
         // $filmid = $row[0];
         // $woord = $row[7];
-        echo '<tr><td><a href="recommend.php?id='.$row[0].'" ><button type="button">Vind ik leuk!</button></a></td></tr>';
+        echo '<td><a href="recommend.php?id='.$row[0].'" ><button type="button">Vind ik leuk!</button></a></td>';
 
         echo '</tr>';	
 
@@ -79,6 +96,7 @@ echo $id;
 
             <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
+
 
 <script>
   // 2. This code loads the IFrame Player API code asynchronously.
