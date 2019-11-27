@@ -44,14 +44,29 @@ if (mysqli_num_rows($results) > 0) {
 
         <html>  
 
-<head>
-<link rel="stylesheet" type="text/css" href="../css/style.css">
-<title>Movies</title>
-</head>
+        <div class="header">
 
+<head>
+    <link rel="stylesheet" type="text/css" href="/../film/filmdb/css/style.css">
+    
+    <title>Movies</title>
+</head>
 <body>
 <div class="logo" >
 <img src="/../film/filmdb/img/logo.png" alt="logo">
+</div>
+</div>
+<ul>
+<li><a  href="home.php">Home</a></li>
+<li><a class="active" href="../php/pages/add.php">Add a movie</a></li>
+<li><a href="list.php">List</a></li>
+<li><a href="profile.php">Profile</a></li>
+</ul>
+<div class="form1">
+<form action="./pages/search.php" method="GET">
+<input type="text" placeholder="Zoek op film naam, directors of acteurs!" name="search" />
+
+</form>
 </div>
 
 <div class="forms">
