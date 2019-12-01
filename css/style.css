@@ -4,10 +4,19 @@ html {
   
 body{
     color: black;
+    /* background-color: rgb(0, 0, 0); */
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .logo{
     padding-left: 40%;
+}
+
+.header{
+  margin-top: 0%;
+  padding-top: 0%;
+  background-color: rgb(253, 207, 0);
 }
 
 .forms{
@@ -95,4 +104,9 @@ input[type=text], select {
   
   th, td {
     padding: 15px;
+  }
+
+  #player{
+    padding-left: 30%;
+    
   }

@@ -7,7 +7,7 @@ include('../conn.php');
     echo $id;
 	$id2 = $_SESSION['userid'];
     echo $id2;
-
+    //voegt de film data en de userdata toe aan een koppeltabel genaamd user_films
     $sql1 = "INSERT into `user_films` (userid, film_id, soort) SELECT e.userid, f.film_id, f.soort FROM (films f, user e) WHERE e.userid=".$id2." AND f.film_id=".$id.";";
     $result = mysqli_multi_query($conn, $sql1);	
     // $sql = "Insert into `user_films` (userid, film_id, woord)
@@ -21,7 +21,7 @@ include('../conn.php');
 // $result = mysqli_query($conn, $sql1);
 
 if ($result) {
-
+    //voegt de huidige datum toe aan de user_films tabel
    $sql2 = "INSERT INTO `user_films` (date) VALUES (CURRENT_TIMESTAMP()) WHERE userid =".$id2;
    $result2 = mysqli_query($conn, $sql2);	
 
