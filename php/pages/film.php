@@ -68,6 +68,7 @@ $id2 = $_SESSION['userid'];
 <table>
 	
 			<?php
+      //haalt de film met een specifieke ID op uit de database en geeft deze weer
 	$sql="SELECT * FROM films where film_id = ".$id;
     $result_set=mysqli_query($conn, $sql);
 	while($row=mysqli_fetch_row($result_set))

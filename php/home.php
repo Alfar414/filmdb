@@ -43,6 +43,8 @@ if($_SESSION['userid'] != null){
             
           //  SELECT user_films.userid, films.film_id, films.image, films.naam, films.descriptie, films.director FROM user_films, films WHERE user_films.userid =".$id." AND user_films.soort = films.soort AND user_films.film_id != films.film_id ORDER BY user_films.date DESC LIMIT 8
             // SELECT * FROM films where soort IN (SELECT DISTINCT soort FROM user_films WHERE user_films.userid = 2 AND  user_films.film_id != films.film_id  ORDER BY date DESC )
+
+            //Onderstaande code zorgt ervoor dat het recommendatie systeem werkt en haalt de informatie uit de user_films / films tabel in de database.
 	$sql="SELECT f1.film_id, image, naam, descriptie, director 
     FROM films f1
     LEFT JOIN user_films f2 ON f1.film_id = f2.film_id AND f2.userid =".$id." 
@@ -50,6 +52,7 @@ if($_SESSION['userid'] != null){
 	$result_set=mysqli_query($conn, $sql);
 	while($row=mysqli_fetch_row($result_set))
 	{
+        //onderstaande code zorgt ervoor dat de opgehaalde gegevens in een tabel komen te staan
 		echo '<tr>';
         echo '<td><img src="./pages/afb/'. $row[1] . '"width="200px" height="200px"></a></td>';
         echo '<td>'. $row[2] . '</td>';

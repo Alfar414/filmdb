@@ -35,7 +35,7 @@ include('../conn.php');
 
 <?php
 $output = '';
-
+//Haalt de gegevens die op de ingevoerde tekst lijken op uit de database en geeft deze weer
 if(isset($_GET['search']) AND $_GET['search'] !== ' '){
 	$search = $_GET['search'];
 	
